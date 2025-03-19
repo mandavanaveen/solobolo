@@ -1698,6 +1698,7 @@ footer {
         overflow-y: hidden; /* Prevent vertical scrolling */
         /* max-height: 100vh;  */
         height: 697px;
+        position: relative;
     }
 
     .blog-container {
@@ -1720,7 +1721,7 @@ footer {
     }
 
     .blog-see-all {
-        position: relative; /* Changed to relative */
+        position: absolute; /* Changed to relative */
         align-self: center;
         color: #12141D;
         text-decoration: none;
@@ -1731,6 +1732,7 @@ footer {
         display: flex;
         align-items: center;
         gap: 16px;
+        top: 619px;
         margin-top: 16px; /* Add some spacing */
     }
 
