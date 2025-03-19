@@ -1353,6 +1353,7 @@ footer {
         line-height: 20px;  
     }
 
+    /* bridge section */
     .bridge-section{
         display: flex;
         flex-direction: column-reverse;
@@ -1375,8 +1376,8 @@ footer {
     }
     
     .bridge-section div .point{
-        width: 209px;
-        height: 209px;
+        width: 149px;
+        height: 149px;
         position: absolute;
         display: flex;
         justify-content: center;
