@@ -1011,7 +1011,7 @@ footer {
     body {
         overflow-x: hidden; /* Prevents horizontal scrolling */
     }
-    
+
     .hero-cont {
         padding: 0.9375rem; /* 15px */
     }
@@ -1559,6 +1559,7 @@ footer {
     }
 
     .testimonial-container {
+        overflow: hidden;
         width: 372px;
         height: 556px;
         position: relative;
@@ -1689,6 +1690,7 @@ footer {
     }
 
     .blog-container{
+        overflow: hidden;
         width: 372px;
         display: flex;
         flex-direction: column;
