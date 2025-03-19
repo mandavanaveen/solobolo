@@ -1702,10 +1702,11 @@ footer {
     }
 
     .blog-container {
+        margin-block: 50px;
         width: 372px;
         display: flex;
         flex-direction: column;
-        gap: 24px; /* Reduced gap to fit content better */
+        gap: 32px; /* Reduced gap to fit content better */
         position: relative;
         overflow-x: hidden;
     }
@@ -1771,10 +1772,10 @@ footer {
     }
 
     .blog-card-content {
-        width: 100%;
+        width: 288.33px;
         height: 194px;
         padding-inline: 16px;
-        box-sizing: border-box;
+        /* box-sizing: border-box; */
     }
 
     .blog-date {
