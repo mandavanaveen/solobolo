@@ -335,9 +335,15 @@
         
         document.addEventListener('DOMContentLoaded', () => {
             const blogCards = document.getElementById('blog-cards');
+            const cards = [];
             let currentIndex = 0;
             let startX = 0;
+            let currentX = 0;
             let isDragging = false;
+            const cardWidth = 288.33;
+            const gap = 16;
+            const totalCardWidth = cardWidth + gap;
+            const containerWidth = 372;
 
             const entries = blogData.entries;
 
@@ -362,25 +368,21 @@
 
                 cards.push({
                     element: card,
-                    translateX: initialX,
-                    startX: 0,
-                    currentX: 0,
-                    isDragging: false
+                    baseX: initialX, // Base position without offset
+                    translateX: initialX
                 });
             });
 
             // Update all card positions based on currentIndex
-            function updateCarousel() {
+            function updateblogCarousel() {
                 if (window.innerWidth <= 768) {
                     const maxIndex = entries.length - 1;
                     currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
                     const offset = -currentIndex * totalCardWidth;
 
                     cards.forEach((card, index) => {
-                        card.translateX = (index * totalCardWidth) + offset;
-                        // Ensure card stays within container bounds
-                        const visibleX = Math.max(-cardWidth, Math.min(containerWidth, card.translateX));
-                        card.element.style.transform = `translateX(${visibleX}px)`;
+                        card.translateX = card.baseX + offset;
+                        card.element.style.transform = `translateX(${card.translateX}px)`;
                     });
                 } else {
                     cards.forEach(card => {
@@ -407,10 +409,10 @@
                 const deltaX = currentX - startX;
 
                 // Update all cards' positions based on drag
+                const offset = -currentIndex * totalCardWidth + deltaX;
                 cards.forEach((card, index) => {
-                    card.translateX = (index * totalCardWidth) - (currentIndex * totalCardWidth) + deltaX;
-                    const visibleX = Math.max(-cardWidth, Math.min(containerWidth, card.translateX));
-                    card.element.style.transform = `translateX(${visibleX}px)`;
+                    card.translateX = card.baseX + offset;
+                    card.element.style.transform = `translateX(${card.translateX}px)`;
                 });
             }
 
@@ -429,7 +431,7 @@
                         currentIndex--; // Swipe right
                     }
                 }
-                updateCarousel();
+                updateblogCarousel();
             }
 
             // Add event listeners to each card
@@ -452,11 +454,11 @@
                 };
             }
 
-            const debouncedUpdate = debounce(updateCarousel, 100);
+            const debouncedUpdate = debounce(updateblogCarousel, 100);
             window.addEventListener('resize', debouncedUpdate);
 
             // Initial setup
-            updateCarousel();
+            updateblogCarousel();
         });
 
         function toggleMenu() {
