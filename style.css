@@ -1008,6 +1008,10 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Prevents horizontal scrolling */
+    }
+    
     .hero-cont {
         padding: 0.9375rem; /* 15px */
     }
