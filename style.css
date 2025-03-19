@@ -1693,17 +1693,18 @@ footer {
 
     /* Blog Section */
     .blog-section {
-        height: 697px;
         display: flex;
         justify-content: center;
-        overflow-x: hidden;
+        overflow-y: hidden; /* Prevent vertical scrolling */
+        /* max-height: 100vh;  */
+        height: 697px;
     }
 
     .blog-container {
         width: 372px;
         display: flex;
         flex-direction: column;
-        gap: 64px;
+        gap: 24px; /* Reduced gap to fit content better */
         position: relative;
         overflow-x: hidden;
     }
@@ -1719,9 +1720,8 @@ footer {
     }
 
     .blog-see-all {
-        position: absolute;
-        top: 619px;
-        left: 138px;
+        position: relative; /* Changed to relative */
+        align-self: center;
         color: #12141D;
         text-decoration: none;
         font-family: "Lato", sans-serif;
@@ -1731,11 +1731,12 @@ footer {
         display: flex;
         align-items: center;
         gap: 16px;
+        margin-top: 16px; /* Add some spacing */
     }
 
     .blog-cards {
         width: 372px;
-        height: 467px;
+        height: 467px; /* Matches card height */
         position: relative;
         overflow-x: hidden;
     }
