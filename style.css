@@ -1722,7 +1722,7 @@ footer {
 
     .blog-see-all {
         position: absolute; /* Changed to relative */
-        align-self: center;
+        /* align-self: center; */
         color: #12141D;
         text-decoration: none;
         font-family: "Lato", sans-serif;
@@ -1733,7 +1733,7 @@ footer {
         align-items: center;
         gap: 16px;
         top: 619px;
-        margin-top: 16px; /* Add some spacing */
+        left: 138.5px;
     }
 
     .blog-cards {
