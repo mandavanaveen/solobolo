@@ -93,7 +93,9 @@ footer {
 }
 
 .hero-child-cont{
-    width: 1200px;
+    width: 100%; /* Replace width: 1200px */
+    max-width: 1200px;
+    padding: 0 20px; /* Adds breathing room on small screens */
     height: 340px;
     display: flex;
     flex-direction: row;
@@ -842,9 +844,10 @@ footer {
 }
 
 .carousel {
+    width: 100%; /* Replace width: 1140px */
     position: relative;
     overflow: hidden;
-    width: 1140px; 
+    max-width: 1140px; 
     height: 259px;
     margin: 0 auto;
 }
@@ -926,10 +929,13 @@ footer {
 }
 
 .blog-cards{
-    width: 1140px;
+    width: 100%; /* Replace width: 1140px (desktop) and 897px (mobile) */
+    max-width: 1140px;
     height: 537px;
     display: flex;
     gap: 32px;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .blogcard-1{
@@ -1206,7 +1212,8 @@ footer {
     }
     
     .videosection-text{
-        width: 332px;
+        width: 100%; /* Replace width: 1140px */
+        max-width: 1140px;
         height: 172px;
         display: flex;
         flex-direction: column;
