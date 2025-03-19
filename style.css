@@ -1014,11 +1014,6 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-    /* body {
-        overflow-x: hidden; 
-    } 
-    */
-
     .hero-cont {
         padding: 0.9375rem; /* 15px */
     }
@@ -1705,7 +1700,7 @@ footer {
     }
 
     .blog-container{
-        /* overflow: hidden; */
+        overflow: hidden;
         width: 372px;
         display: flex;
         flex-direction: column;
