@@ -1696,16 +1696,16 @@ footer {
         height: 697px;
         display: flex;
         justify-content: center;
-        /* align-items: center; */
+        overflow-x: hidden;
     }
 
     .blog-container{
-        overflow: hidden;
         width: 372px;
         display: flex;
         flex-direction: column;
         gap: 64px;
         position: relative;
+        overflow-x: hidden;
     }
 
     .blog-h1{
@@ -1719,18 +1719,32 @@ footer {
     }
 
     .blog-see-all{
+        /* position: absolute;
+        top: 619px;
+        left: 138px;
+        color: #12141D;
+        text-decoration: none; */
         position: absolute;
         top: 619px;
         left: 138px;
         color: #12141D;
         text-decoration: none;
-    }
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }   
 
     .blog-cards{
-        width: 897px;
+        width: 372px;
         height: 467px;
-        display: flex;
-        gap: 16px;
+        /* display: flex;
+        gap: 16px; */
+        position: relative;
+        overflow-x: hidden;
     }
 
     .blogcard-1{
@@ -1739,6 +1753,20 @@ footer {
         gap: 16px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
+        background-color: red;
+        width: 288.33px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-out;
+        will-change: transform;
+        user-select: none;
+        cursor: grab;
+    }
+
+    .blogcard-1.dragging {
+        transition: none;
+        cursor: grabbing;
     }
 
     .blog-image{
@@ -1747,9 +1775,11 @@ footer {
     }
 
     .blog-card-content{
-        width: 288.33px;
+        width: 100%;
+        /* width: 288.33px; */
         height: 194px;
         padding-inline: 16px;
+        /* box-sizing: border-box; */
     }
 
     .blog-date{

@@ -345,7 +345,6 @@
             entries.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.classList.add('blogcard-1');
-
                 card.innerHTML = `
                     <img class="blog-image" src="${item.image}" alt="${item.title}">
                     <div class="blog-card-content">
@@ -355,71 +354,109 @@
                         <a href="#" class="blog-read-story">Read Story <img class="blog-see-all-arrow" src="./Assets/Vector.png"/></a>
                     </div>
                 `;
-
                 blogCards.appendChild(card);
-                console.log(`Card ${index + 1} created:`, card);
+
+                // Initial position
+                const initialX = index * totalCardWidth;
+                card.style.transform = `translateX(${initialX}px)`;
+
+                cards.push({
+                    element: card,
+                    translateX: initialX,
+                    startX: 0,
+                    currentX: 0,
+                    isDragging: false
+                });
             });
 
-            // Update carousel position
-            // function updateBlogCarousel() {
-            //     if (window.innerWidth <= 768) {
-            //         const cardElement = blogCards.querySelector('.blog-cards');
-            //         const cardWidth = cardElement.offsetWidth;
-            //         const gap = 20;
-            //         const totalCardWidth = cardWidth + gap;
+            // Update all card positions based on currentIndex
+            function updateCarousel() {
+                if (window.innerWidth <= 768) {
+                    const maxIndex = entries.length - 1;
+                    currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+                    const offset = -currentIndex * totalCardWidth;
 
-            //         const slideDistance = totalCardWidth * currentIndex;
-            //         blogCards.style.transform = `translateX(-${slideDistance}px)`;
-            //     } else {
-            //         blogCards.style.transform = 'translateX(0)';
-            //     }
-            // }
+                    cards.forEach((card, index) => {
+                        card.translateX = (index * totalCardWidth) + offset;
+                        // Ensure card stays within container bounds
+                        const visibleX = Math.max(-cardWidth, Math.min(containerWidth, card.translateX));
+                        card.element.style.transform = `translateX(${visibleX}px)`;
+                    });
+                } else {
+                    cards.forEach(card => {
+                        card.element.style.transform = 'translateX(0)';
+                    });
+                }
+            }
 
-            // Handle touch/mouse start
-            // function handleStart(event) {
-            //     if (window.innerWidth > 768) return; // Disable on desktop
-            //     isDragging = true;
-            //     startX = event.type.includes('mouse') ? event.pageX : event.touches[0].pageX;
-            // }
+            // Handle drag start on individual card
+            function handleStart(event, card) {
+                if (window.innerWidth > 768) return;
+                isDragging = true;
+                card.element.classList.add('dragging');
+                startX = event.type.includes('mouse') ? event.pageX : event.touches[0].pageX;
+                currentX = startX;
+                event.preventDefault();
+            }
 
-            // // Handle touch/mouse move
-            // function handleMove(event) {
-            //     if (!isDragging || window.innerWidth > 768) return;
-            //     event.preventDefault();
-            //     const x = event.type.includes('mouse') ? event.pageX : event.touches[0].pageX;
-            //     const deltaX = x - startX;
+            // Handle drag move
+            function handleMove(event) {
+                if (!isDragging || window.innerWidth > 768) return;
+                event.preventDefault();
+                currentX = event.type.includes('mouse') ? event.pageX : event.touches[0].pageX;
+                const deltaX = currentX - startX;
 
-            //     // Determine swipe direction
-            //     if (Math.abs(deltaX) > 50) { // Swipe threshold
-            //         if (deltaX > 0 && currentIndex > 0) {
-            //             currentIndex--; // Swipe right
-            //         } else if (deltaX < 0 && currentIndex < entries.length - 1) {
-            //             currentIndex++; // Swipe left
-            //         }
-            //         updateBlogCarousel();
-            //         isDragging = false;
-            //     }
-            // }
+                // Update all cards' positions based on drag
+                cards.forEach((card, index) => {
+                    card.translateX = (index * totalCardWidth) - (currentIndex * totalCardWidth) + deltaX;
+                    const visibleX = Math.max(-cardWidth, Math.min(containerWidth, card.translateX));
+                    card.element.style.transform = `translateX(${visibleX}px)`;
+                });
+            }
 
-            // // Handle touch/mouse end
-            // function handleEnd() {
-            //     isDragging = false;
-            // }
+            // Handle drag end
+            function handleEnd() {
+                if (!isDragging || window.innerWidth > 768) return;
+                isDragging = false;
+                cards.forEach(card => card.element.classList.remove('dragging'));
 
-            // // Add event listeners for touch and mouse
-            // blogCards.addEventListener('touchstart', handleStart);
-            // blogCards.addEventListener('touchmove', handleMove);
-            // blogCards.addEventListener('touchend', handleEnd);
-            // blogCards.addEventListener('mousedown', handleStart);
-            // blogCards.addEventListener('mousemove', handleMove);
-            // blogCards.addEventListener('mouseup', handleEnd);
-            // blogCards.addEventListener('mouseleave', handleEnd);
+                const deltaX = currentX - startX;
+                const threshold = 50; // Pixels to swipe before changing card
+                if (Math.abs(deltaX) > threshold) {
+                    if (deltaX < 0 && currentIndex < entries.length - 1) {
+                        currentIndex++; // Swipe left
+                    } else if (deltaX > 0 && currentIndex > 0) {
+                        currentIndex--; // Swipe right
+                    }
+                }
+                updateCarousel();
+            }
 
-            // // Initial call to set the starting position
-            // updateBlogCarousel();
+            // Add event listeners to each card
+            cards.forEach(card => {
+                card.element.addEventListener('touchstart', (e) => handleStart(e, card));
+                card.element.addEventListener('touchmove', handleMove);
+                card.element.addEventListener('touchend', handleEnd);
+                card.element.addEventListener('mousedown', (e) => handleStart(e, card));
+                card.element.addEventListener('mousemove', handleMove);
+                card.element.addEventListener('mouseup', handleEnd);
+                card.element.addEventListener('mouseleave', handleEnd);
+            });
 
-            // // Recalculate slide distance on window resize
-            // window.addEventListener('resize', updateBlogCarousel);
+            // Debounce resize
+            function debounce(func, wait) {
+                let timeout;
+                return function(...args) {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func(...args), wait);
+                };
+            }
+
+            const debouncedUpdate = debounce(updateCarousel, 100);
+            window.addEventListener('resize', debouncedUpdate);
+
+            // Initial setup
+            updateCarousel();
         });
 
         function toggleMenu() {
