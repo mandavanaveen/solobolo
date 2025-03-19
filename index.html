@@ -360,7 +360,66 @@
                 console.log(`Card ${index + 1} created:`, card);
             });
 
+                        // Update carousel position
+                        function updateBlogCarousel() {
+                if (window.innerWidth <= 768) {
+                    const cardElement = blogCards.querySelector('.card');
+                    const cardWidth = cardElement.offsetWidth;
+                    const gap = 20;
+                    const totalCardWidth = cardWidth + gap;
 
+                    const slideDistance = totalCardWidth * currentIndex;
+                    blogCards.style.transform = `translateX(-${slideDistance}px)`;
+                } else {
+                    blogCards.style.transform = 'translateX(0)';
+                }
+            }
+
+            // Handle touch/mouse start
+            function handleStart(event) {
+                if (window.innerWidth > 768) return; // Disable on desktop
+                isDragging = true;
+                startX = event.type.includes('mouse') ? event.pageX : event.touches[0].pageX;
+            }
+
+            // Handle touch/mouse move
+            function handleMove(event) {
+                if (!isDragging || window.innerWidth > 768) return;
+                event.preventDefault();
+                const x = event.type.includes('mouse') ? event.pageX : event.touches[0].pageX;
+                const deltaX = x - startX;
+
+                // Determine swipe direction
+                if (Math.abs(deltaX) > 50) { // Swipe threshold
+                    if (deltaX > 0 && currentIndex > 0) {
+                        currentIndex--; // Swipe right
+                    } else if (deltaX < 0 && currentIndex < entries.length - 1) {
+                        currentIndex++; // Swipe left
+                    }
+                    updateBlogCarousel();
+                    isDragging = false;
+                }
+            }
+
+            // Handle touch/mouse end
+            function handleEnd() {
+                isDragging = false;
+            }
+
+            // Add event listeners for touch and mouse
+            blogCards.addEventListener('touchstart', handleStart);
+            blogCards.addEventListener('touchmove', handleMove);
+            blogCards.addEventListener('touchend', handleEnd);
+            blogCards.addEventListener('mousedown', handleStart);
+            blogCards.addEventListener('mousemove', handleMove);
+            blogCards.addEventListener('mouseup', handleEnd);
+            blogCards.addEventListener('mouseleave', handleEnd);
+
+            // Initial call to set the starting position
+            updateBlogCarousel();
+
+            // Recalculate slide distance on window resize
+            window.addEventListener('resize', updateBlogCarousel);
         });
 
         function toggleMenu() {
