@@ -1690,6 +1690,7 @@ footer {
     .blog-section{
         height: 697px;
         display: flex;
+        justify-content: center;
     }
 
     .blog-container{
