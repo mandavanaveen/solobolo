@@ -360,20 +360,20 @@
                 console.log(`Card ${index + 1} created:`, card);
             });
 
-                        // Update carousel position
-                        function updateBlogCarousel() {
-                if (window.innerWidth <= 768) {
-                    const cardElement = blogCards.querySelector('.blog-cards');
-                    const cardWidth = cardElement.offsetWidth;
-                    const gap = 20;
-                    const totalCardWidth = cardWidth + gap;
+            // Update carousel position
+            // function updateBlogCarousel() {
+            //     if (window.innerWidth <= 768) {
+            //         const cardElement = blogCards.querySelector('.blog-cards');
+            //         const cardWidth = cardElement.offsetWidth;
+            //         const gap = 20;
+            //         const totalCardWidth = cardWidth + gap;
 
-                    const slideDistance = totalCardWidth * currentIndex;
-                    blogCards.style.transform = `translateX(-${slideDistance}px)`;
-                } else {
-                    blogCards.style.transform = 'translateX(0)';
-                }
-            }
+            //         const slideDistance = totalCardWidth * currentIndex;
+            //         blogCards.style.transform = `translateX(-${slideDistance}px)`;
+            //     } else {
+            //         blogCards.style.transform = 'translateX(0)';
+            //     }
+            // }
 
             // Handle touch/mouse start
             function handleStart(event) {
