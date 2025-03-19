@@ -1368,16 +1368,18 @@ footer {
     .bridge-section .leftimage{
         width: 321px;
         height: 368px;
+        margin-left: -20px;
     }
 
     .bridge-section-1{
         position: relative;
         margin-left: 0;
+        width: 372px;
     }
     
     .bridge-section div .point{
-        width: 149px;
-        height: 149px;
+        width: 209px;
+        height: 209px;
         position: absolute;
         display: flex;
         justify-content: center;
