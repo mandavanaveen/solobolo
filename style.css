@@ -1107,18 +1107,19 @@ footer {
     height: 72px;
     position: absolute;
     z-index: 1;
-    top: 402px;
+    top: 490px;
     left: -32px;
 
 }
 
 .banner-girl{
     position: relative;
-    width: 723px;
-    height: 520px;
+    width: 760px;
+    height: 743px;
+    padding: 40px;
     z-index: 2;
-    margin-bottom: -7px;
-    left: -40px;
+    margin-bottom: -35px;
+    left: -75px;
 }
 
 .banner-star{
@@ -1126,8 +1127,8 @@ footer {
     z-index: 3;
     width: 104px;
     height: 413px;
-    top: 358.36px;
-    left: 420px;
+    top: 460px;
+    left: 400px;
     border-radius: 100px;
     padding: 16px;
     background-color: #043A53;
@@ -1138,8 +1139,8 @@ footer {
     z-index: 0;
     width: 104px;
     height: 502px;
-    top: 201.13px;
-    left: 589px;
+    top: 290.13px;
+    left: 550px;
     /* right: 40px; */
     gap: 18px;
     border-radius: 1000px;
@@ -2061,14 +2062,15 @@ footer {
         height: 56px;
         position: absolute;
         z-index: 1;
-        top: 180px; /* Position at the top of banner-image */
-        left: -5px; /* Adjusted to align with the edge */
+        top: 165px; /* Position at the top of banner-image */
+        left: 18px; /* Adjusted to align with the edge */
     }
 
     .banner-girl {
         position: relative;
-        width: 333px;
-        height: 273px;
+        width: 393px;
+        height: 393px;
+        padding: 55px;
         left: 10px;
         z-index: 2;
         margin-bottom: -5px; /* Remove any default margins */
