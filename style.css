@@ -1963,35 +1963,36 @@ footer {
     }
 
     /* Banner section */
-    .banner-section{
-        overflow-x: visible;
+    .banner-section {
+        overflow-x: hidden; /* Changed to hidden to prevent horizontal overflow */
         height: 617px;
         display: flex;
         justify-content: center;
         background-color: #12141D;
     }
 
-    .banner-header-img{
+    .banner-header-img {
         width: 375px;
         height: 617px;
         display: flex;
         flex-direction: column;
         align-items: center; /* Center children horizontally */
-        justify-content: space-between; /* Distribute space between header and image */
+        justify-content: flex-start; /* Start from the top */
         box-sizing: border-box;
     }
 
-    .header-container{
+    .header-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 375px;   
+        width: 100%; /* Use full width for better centering */
+        /* max-width: 375px; */
         padding: 20px;
-        flex-shrink: 0; /* Prevent shrinking */
+        flex-shrink: 0;
     }
 
-    .header-container h1{
+    .header-container h1 {
         color: white;
         width: 270px;
         font-family: "Lato";
@@ -2000,11 +2001,13 @@ footer {
         line-height: 38px;
         text-align: center;
         text-transform: none;
+        margin: 0 auto; /* Ensure centering */
     }
 
-    .button-cont{
-        margin-top: -20px;
-        width: 314px;
+    .button-cont {
+        margin-top: 10px; /* Adjusted for better spacing */
+        width: 100%;
+        max-width: 314px;
         height: 118px;
         display: flex;
         flex-direction: column;
@@ -2012,7 +2015,7 @@ footer {
         align-items: center;
     }
 
-    .button-cont button{
+    .button-cont button {
         background-color: #F0B73F;
         display: flex;
         align-items: center;
@@ -2031,78 +2034,77 @@ footer {
         border: none;
     }
 
-    .button-cont p{
-        width: 314px;
+    .button-cont p {
+        width: 100%;
+        max-width: 314px;
         text-align: center;
+        color: white; /* Ensure visibility on dark background */
+        margin: 0;
     }
 
-    .banner-image{
+    .banner-image {
         position: relative;
         width: 333px;
-        /* margin-top: 63px; */
-        height: 273px; /* Match the banner-girl height for consistency */
-        /* margin-top: 20px; Reduce margin for better fit */
-        flex-shrink: 0; /* Prevent shrinking */
+        height: 273px;
+        margin-top: 30px; /* Adjusted for better spacing */
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .banner-crown{
+    .banner-crown {
         width: 56px;
         height: 56px;
         position: absolute;
         z-index: 1;
-        top: 200px;
-        left: -12px;
-        
-
+        top: 180px; /* Position at the top of banner-image */
+        left: -55px; /* Adjusted to align with the edge */
     }
 
-    .banner-girl{
+    .banner-girl {
         position: relative;
-        display: flex;
-        justify-content: center;
         width: 333px;
         height: 273px;
         z-index: 2;
-        left: 0px;
-        margin-bottom: -12px;
+        margin-bottom: -5px; /* Remove any default margins */
     }
 
-    .banner-star{
+    .banner-star {
         position: absolute;
         z-index: 3;
         width: 72px;
         height: 250px;
-        top: 180px;
-        left: 180px;
+        top: 180px; /* Adjusted to position near the top */
+        left: 140px; /* Adjusted to fit within 333px width */
         border-radius: 100px;
         display: flex;
         justify-content: center;
+        align-items: start;
         background-color: #043A53;
     }
 
-    .banner-star img{
+    .banner-star img {
         width: 56px;
         height: 56px;
-        position: relative;
     }
 
-    .banner-search{
+    .banner-search {
         position: absolute;
         z-index: 0;
         width: 72px;
         height: 438px;
-        top: 117px;
-        left: 290px;
+        top: 80px; /* Adjusted to position at the top */
+        left: 240px; /* Adjusted to fit within 333px width */
         border-radius: 100px;
         display: flex;
         align-items: start;
         justify-content: center;
-        /* padding: 16px; */
         background-color: #F0B73F;
     }
 
-    .banner-search img{
+    .banner-search img {
         width: 56px;
-        width: 56px;
+        height: 56px;
     }
 }
