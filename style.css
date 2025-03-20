@@ -1659,6 +1659,10 @@ footer {
     .hero-cont {
         padding: 0.9375rem; /* 15px */
     }
+
+    body{
+        width: 375px;
+    }
     
     .hero-child-cont {
         width: 100%;
