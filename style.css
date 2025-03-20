@@ -930,8 +930,8 @@ footer {
 
 .blog-cards{
     width: 100%; /* Replace width: 1140px (desktop) and 897px (mobile) */
+    padding-bottom: 1px;
     max-width: 1140px;
-    padding-bottom: 2px;
     height: 537px;
     display: flex;
     gap: 32px;
@@ -942,7 +942,7 @@ footer {
 .blogcard-1{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
@@ -1022,7 +1022,7 @@ footer {
     height: 520px;
     display: flex;
     background-color: #12141D;
-    justify-content: center;
+    /* align-items: center; */
 }
 
 .banner-header-img {
@@ -1829,22 +1829,22 @@ footer {
 
     /* Blog Section */
     .blog-section {
+        height: 697px;
         display: flex;
         justify-content: center;
-        overflow-y: hidden; /* Prevent vertical scrolling */
-        /* max-height: 100vh;  */
-        height: 697px;
+        align-items: center;
         position: relative;
+        overflow-x: visible;
     }
 
     .blog-container {
-        margin-block: 50px;
         width: 372px;
+        height: 650px;
         display: flex;
         flex-direction: column;
-        gap: 32px; /* Reduced gap to fit content better */
-        position: relative;
-        overflow-x: hidden;
+        justify-content: start;
+        align-items: center;
+
     }
 
     .blog-h1 {
@@ -1868,15 +1868,14 @@ footer {
         line-height: 20px;
         display: flex;
         align-items: center;
-        top: 590px;
+        top: 600px;
         left: 138.5px;
     }
 
     .blog-cards {
         width: 372px;
-        height: 467px; /* Matches card height */
+        height: 477px;
         position: relative;
-        overflow-x: hidden;
     }
 
     .blogcard-1 {
@@ -1911,7 +1910,6 @@ footer {
         width: 288.33px;
         height: 194px;
         padding-inline: 16px;
-        /* box-sizing: border-box; */
     }
 
     .blog-date {
