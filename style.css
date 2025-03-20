@@ -935,7 +935,7 @@ footer {
     height: 537px;
     display: flex;
     gap: 32px;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     /* white-space: nowrap;  */
 }
 
