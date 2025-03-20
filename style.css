@@ -1021,6 +1021,7 @@ footer {
     overflow-y: hidden;
     height: 520px;
     display: flex;
+    justify-content: center;
     background-color: #12141D;
     /* align-items: center; */
 }
