@@ -1656,38 +1656,22 @@ footer {
 
 
 @media screen and (max-width: 768px) {
-
     .hero-cont {
         padding: 0.9375rem; /* 15px */
     }
 
-    body {
-        width: 100%;
-        max-width: 375px;
-        margin: 0 auto;
+    body{
+        width: 375px;
         overflow-x: hidden;
     }
-
+    
     .hero-child-cont {
-        width: 100%;
-        max-width: 375px;
-        padding: 0 15px;
-    }
-
-    /* .hero-child-cont {
         width: 100%;
         height: auto;
         display: grid;
         grid-template-rows: auto auto;
         grid-template-columns: 1fr 1fr;
-        gap: 2.5rem; 
-    }  */
-    
-
-    .hero-child-cont .hero6 {
-        width: 45%;
-        max-width: 174px;
-        margin-left: 0;
+        gap: 2.5rem; /* 40px */
     }
     
     .herotextcont {
@@ -2358,7 +2342,7 @@ footer {
         overflow-x: visible;
     }
 
-    /* .blog-container {
+    .blog-container {
         width: 372px;
         height: 650px;
         display: flex;
@@ -2366,11 +2350,6 @@ footer {
         justify-content: start;
         align-items: center;
 
-    } */
-
-    .blog-container {
-        width: 100%;
-        max-width: 372px;
     }
 
     .blog-h1 {
@@ -2397,24 +2376,14 @@ footer {
         top: 600px;
         left: 138.5px;
     }
-/* 
+
     .blog-cards {
         width: 372px;
         height: 477px;
         position: relative;
-    } */
-
-    .blog-cards {
-        width: 100%;
-        max-width: 372px;
-        overflow-x: hidden;
     }
 
     .blogcard-1 {
-        width: 100%;
-        max-width: 288.33px;
-    }
-    /* .blogcard-1 {
         display: flex;
         flex-direction: column;
         gap: 16px;
@@ -2428,7 +2397,7 @@ footer {
         will-change: transform;
         user-select: none;
         cursor: grab;
-    } */
+    }
 
     .blogcard-1.dragging {
         transition: none;
@@ -2513,10 +2482,6 @@ footer {
     }
 
     .banner-header-img {
-        width: 100%;
-        max-width: 375px;
-    }
-    /* .banner-header-img {
         width: 375px;
         height: 617px;
         display: flex;
@@ -2524,7 +2489,7 @@ footer {
         align-items: center; 
         justify-content: flex-start;
         box-sizing: border-box;
-    } */
+    }
 
     .header-container {
         display: flex;
@@ -2607,13 +2572,6 @@ footer {
     }
 
     .banner-girl {
-        width: 100%;
-        max-width: 333px;
-        left: 0;
-        padding: 0;
-    }
-
-    /* .banner-girl {
         position: relative;
         width: 393px;
         height: 393px;
@@ -2621,7 +2579,7 @@ footer {
         left: 10px;
         z-index: 2;
         margin-bottom: -5px;
-    } */
+    }
 
     .banner-star {
         position: absolute;
