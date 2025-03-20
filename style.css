@@ -1965,7 +1965,7 @@ footer {
     /* Banner section */
     .banner-section{
         overflow-x: visible;
-        height: 680px;
+        height: 617px;
         display: flex;
         justify-content: center;
         background-color: #12141D;
@@ -1974,6 +1974,8 @@ footer {
     .banner-header-img{
         width: 375px;
         height: 617px;
+        display: flex;
+        flex-direction: column;
     }
 
     .header-container{
