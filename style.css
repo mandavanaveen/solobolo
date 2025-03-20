@@ -931,6 +931,7 @@ footer {
 .blog-cards{
     width: 100%; /* Replace width: 1140px (desktop) and 897px (mobile) */
     max-width: 1140px;
+    padding-bottom: 2px;
     height: 537px;
     display: flex;
     gap: 32px;
@@ -941,7 +942,7 @@ footer {
 .blogcard-1{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
@@ -979,7 +980,8 @@ footer {
 
 .blog-title{
     color: black;
-    width: 308.67;
+    text-wrap: wrap;
+    width: 308.67px;
     height: 64px;
     font-family: "Lato";
     font-weight: 700;
@@ -990,6 +992,7 @@ footer {
 .blog-excerpt{
     color: #404040;
     width: 308.67px;
+    text-wrap: wrap;
     height: 84px;
     font-family: "Lato";
     font-weight: 400;
@@ -1015,13 +1018,17 @@ footer {
 
 /* Banner section */
 .banner-section{
-    overflow: hidden;
+    overflow-y: hidden;
     height: 520px;
     display: flex;
     background-color: #12141D;
-    align-items: center;
     justify-content: center;
-    /* padding-inline: 150px; */
+}
+
+.banner-header-img {
+    height: 520px;
+    display: flex;
+    align-items: center;
 }
 
 .header-container{
