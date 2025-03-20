@@ -1974,8 +1974,8 @@ footer {
     .banner-header-img{
         width: 375px;
         height: 617px;
-        display: flex;
-        flex-direction: column;
+        /* display: flex; */
+        /* flex-direction: column; */
     }
 
     .header-container{
